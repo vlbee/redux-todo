@@ -7,12 +7,18 @@ import rootReducer from './reducers/reducers';
 import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 
-let store = createStore(rootReducer, {
-  todoList: [
-    { id: 0, text: 'hello', completed: false },
-    { id: 1, text: 'bye', completed: true }
-  ]
-});
+let store = createStore(
+  rootReducer,
+  // preloaded State
+  {
+    todoList: [
+      { id: 0, text: 'hello', completed: false },
+      { id: 1, text: 'bye', completed: true }
+    ]
+  },
+  // setup for Redux Dev Tools for Chrome
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>

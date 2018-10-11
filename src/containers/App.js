@@ -39,7 +39,6 @@ class App extends Component {
           {this.props.todoList.map(todo => (
             <li
               key={todo.id}
-              // className={todo.completed ? 'strike' : null}
               style={{
                 textDecoration: todo.completed ? 'line-through' : 'none'
               }}

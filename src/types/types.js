@@ -1,0 +1,5 @@
+// TYPES
+const ADDED_TODO = 'ADDED_TODO';
+const TOGGLED_TODO = 'TOGGLED_TODO';
+
+export default { ADDED_TODO, TOGGLED_TODO };

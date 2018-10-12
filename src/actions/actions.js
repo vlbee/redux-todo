@@ -6,8 +6,8 @@ const addTodo = (text, id) => ({
   payload: { text: text, id: id }
 });
 
-const toggleTodo = id => ({ type: TYPES.TOGGLED_TODO, payload: { id: id } });
 const deleteTodo = id => ({ type: TYPES.DELETED_TODO, payload: { id: id } });
+const toggleTodo = id => ({ type: TYPES.TOGGLED_TODO, payload: { id: id } });
 const starTodo = id => ({ type: TYPES.STARRED_TODO, payload: { id: id } });
 
 export default { addTodo, toggleTodo, deleteTodo, starTodo };

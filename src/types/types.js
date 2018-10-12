@@ -1,3 +1,5 @@
+// @ts-check
+
 // TYPES
 const ADDED_TODO = 'ADDED_TODO';
 const TOGGLED_TODO = 'TOGGLED_TODO';

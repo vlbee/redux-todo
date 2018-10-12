@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ACTIONS from '../actions/actions';
+import SELECTORS from '../selectors/selectors';
 import Todo from './Todo';
 
 let todoID = 2;
@@ -16,7 +17,6 @@ class TodoList extends Component {
           />
           <button
             onClick={() => {
-              console.log(this.input.value);
               this.props.addTodo(this.input.value, todoID++);
               this.input.value = '';
             }}
@@ -25,13 +25,8 @@ class TodoList extends Component {
           </button>
         </div>
         <ul>
-          {this.props.todoList.map(todo => (
-            <Todo
-              todo={todo}
-              toggleTodo={this.props.toggleTodo}
-              starTodo={this.props.starTodo}
-              deleteTodo={this.props.deleteTodo}
-            />
+          {this.props.todoList.map(({ id }, i) => (
+            <Todo key={i} id={id} deleteTodo={this.props.deleteTodo} />
           ))}
         </ul>
       </section>
@@ -41,13 +36,12 @@ class TodoList extends Component {
 
 const mapDispatchToProps = dispatch => ({
   addTodo: (text, id) => dispatch(ACTIONS.addTodo(text, id)),
-  toggleTodo: id => dispatch(ACTIONS.toggleTodo(id)),
-  starTodo: id => dispatch(ACTIONS.starTodo(id)),
   deleteTodo: id => dispatch(ACTIONS.deleteTodo(id))
 });
 
+// const selectTodoList = state => state.todoList;
 const mapStateToProps = state => ({
-  todoList: state.todoList
+  todoList: SELECTORS.selectTodoList(state)
 });
 
 export default connect(

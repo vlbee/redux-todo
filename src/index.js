@@ -12,8 +12,8 @@ let store = createStore(
   // preloaded State
   {
     todoList: [
-      { id: 0, text: 'hello', completed: false },
-      { id: 1, text: 'bye', completed: true }
+      { id: 0, text: 'hello', complete: false, star: false },
+      { id: 1, text: 'bye', complete: true, star: false }
     ]
   },
   // setup for Redux Dev Tools for Chrome
